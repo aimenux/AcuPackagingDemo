@@ -1,0 +1,882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{541B5F2C-897B-4082-9F63-1A1D6B130BAB}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AcuPackagingApp</RootNamespace>
+    <AssemblyName>AcuPackagingApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr4.Runtime, Version=4.5.3.0, Culture=neutral, PublicKeyToken=e78b2c5abd1fcb3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Antlr4.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="App_Licenses, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\App_Licenses.dll</HintPath>
+    </Reference>
+    <Reference Include="AuthorizeNet, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AuthorizeNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=5.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extensions.DependencyInjection, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Autofac.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.CommonServiceLocator, Version=6.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Autofac.Extras.CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Owin, Version=5.0.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Autofac.Integration.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.SignalR, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Autofac.Integration.SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=5.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi.Owin, Version=5.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Autofac.Integration.WebApi.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="AutofacSerilogIntegration, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d672c67444a98ac9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AutofacSerilogIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Avalara.AvaTax.Adapter, Version=15.4.0.0, Culture=neutral, PublicKeyToken=34e4ef76d6267205, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Avalara.AvaTax.Adapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Avalara.AvaTax.RestClient.net45, Version=20.1.0.0, Culture=neutral, PublicKeyToken=c182a1af4964ace4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Avalara.AvaTax.RestClient.net45.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CloudWatchLogs, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AWSSDK.CloudWatchLogs.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.CodeDeploy, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AWSSDK.CodeDeploy.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AWSSDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.S3, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AWSSDK.S3.dll</HintPath>
+    </Reference>
+    <Reference Include="AWSSDK.SimpleNotificationService, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\AWSSDK.SimpleNotificationService.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheCow.Common, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\CacheCow.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheCow.Server, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\CacheCow.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="CacheCow.Server.WebApi, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\CacheCow.Server.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="CsvHelper, Version=12.0.0.0, Culture=neutral, PublicKeyToken=8c4959082be5c823, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\CsvHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data, Version=5.0.2158.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Devart.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data.MySql, Version=8.13.1366.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Devart.Data.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.AspNet, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\DotNetOpenAuth.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\DotNetOpenAuth.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\DotNetOpenAuth.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OAuth.Consumer, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\DotNetOpenAuth.OAuth.Consumer.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\DotNetOpenAuth.OpenId.dll</HintPath>
+    </Reference>
+    <Reference Include="DotNetOpenAuth.OpenId.RelyingParty, Version=4.3.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
+    </Reference>
+    <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\EnvDTE.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="EnvDTE80, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\EnvDTE80.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.16.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityModel, Version=4.3.0.0, Culture=neutral, PublicKeyToken=e7877f4675df049f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\IdentityModel.dll</HintPath>
+    </Reference>
+    <Reference Include="IdentityServer3, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\IdentityServer3.dll</HintPath>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=2019.1.3.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.OData.Extendable, Version=7.2.2.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.AspNet.OData.Extendable.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SessionState.SessionStateModule, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.AspNet.SessionState.SessionStateModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.AspNet.SignalR.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.Redis, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.AspNet.SignalR.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SqlServer, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.AspNet.SignalR.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.SignalR.SystemWeb, Version=2.4.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.AspNet.SignalR.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Data.Schema.ScriptDom.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Schema.ScriptDom.Sql, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Data.Schema.ScriptDom.Sql.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.SqlClient, Version=1.11.20045.2, Culture=neutral, PublicKeyToken=23ec7fc2d6eaa4a5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.SqlServer, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Caching.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.StackExchangeRedis, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Caching.StackExchangeRedis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.EnvironmentVariables, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Configuration.EnvironmentVariables.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Http, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options.ConfigurationExtensions, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Options.ConfigurationExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.5.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client, Version=3.0.8.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory, Version=2.29.0.1078, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.IdentityModel.Clients.ActiveDirectory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms, Version=2.29.0.1078, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.8.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=7.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.OData.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=7.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.OData.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.PowerBI.Api, Version=2.0.12.18114, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.PowerBI.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.PowerBI.Core, Version=1.1.11.17109, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.PowerBI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Rest.ClientRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.6.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.RedisSessionStateProvider, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Web.RedisSessionStateProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Services, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Web.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=6.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Monads, Version=1.1.5.0, Culture=neutral, PublicKeyToken=c45ad03d718dd7fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Monads.dll</HintPath>
+    </Reference>
+    <Reference Include="MySqlConnector, Version=0.61.0.0, Culture=neutral, PublicKeyToken=d33d3e53aa5f8c92, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\MySqlConnector.dll</HintPath>
+    </Reference>
+    <Reference Include="Namotion.Reflection, Version=1.0.8.0, Culture=neutral, PublicKeyToken=c2f9c3bdfae56102, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Namotion.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Nito.AsyncEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Concurrent, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Nito.AsyncEx.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="Nito.AsyncEx.Enlightenment, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Nito.AsyncEx.Enlightenment.dll</HintPath>
+    </Reference>
+    <Reference Include="NodaTime, Version=2.4.6.0, Culture=neutral, PublicKeyToken=4226afe0d9b296d1, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\NodaTime.dll</HintPath>
+    </Reference>
+    <Reference Include="Otp.NET, Version=1.2.1.0, Culture=neutral, PublicKeyToken=38a48df817e173a6, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Otp.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.50.5147.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Pipelines.Sockets.Unofficial.dll</HintPath>
+    </Reference>
+    <Reference Include="Pomelo.Extensions.Caching.MySql, Version=2.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Pomelo.Extensions.Caching.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.AddressValidator, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.AddressValidator.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.AddressValidator.AvalaraRest, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.AddressValidator.AvalaraRest.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.AddressValidator.AvalaraSoap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.AddressValidator.AvalaraSoap.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.AddressValidator.VertexSoap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.AddressValidator.VertexSoap.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.CodeBasedScreen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.CodeBasedScreen.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.ContractBased, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.ContractBased.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.ContractBased.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.ContractBased.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.Mobile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.Mobile.Model, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.Mobile.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.OData, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.OData.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.OData.v4.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Api.Webhooks, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Api.Webhooks.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.BootLoader, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.BootLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.BulkInsert, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.BulkInsert.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.BusinessProcess, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.BusinessProcess.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Caching, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CarrierService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CarrierService.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CCProcessing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CCProcessing.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CCProcessing.XmlSerializers, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CCProcessing.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CCProcessingBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CCProcessingBase.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CCProcessingService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CCProcessingService.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CloudServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CloudServices.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Commerce.BigCommerce, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Commerce.BigCommerce.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Commerce.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Commerce.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Commerce.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Commerce.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Commerce.Shopify, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Commerce.Shopify.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Common.Std, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Common.Std.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CR.OutlookAddIn, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CR.OutlookAddIn.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.CS.Contracts, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.CS.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Dashboards, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Dashboards.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Dashboards.Caching, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Dashboards.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Dashboards.Widgets, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Dashboards.Widgets.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data.BQL.Dynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Data.BQL.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Data.BQL.Fluent, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Data.BQL.Fluent.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.DataSync, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.DataSync.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.DataSync.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.DataSync.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.DataSync.HubSpot, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.DataSync.HubSpot.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.DataSync.XmlSerializers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.DataSync.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.DbServices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.DbServices.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Export, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Export.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.ExternalCarriersHelper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.ExternalCarriersHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.FedExCarrier, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.FedExCarrier.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.GIROPaymentsExport, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.GIROPaymentsExport.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Hosting, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Hosting.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Hosting.SystemWeb, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Hosting.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.LicensePolicy, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.LicensePolicy.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Logging.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Logging.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Logging.Uplink, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Logging.Uplink.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.ML, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.ML.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.ML.UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.ML.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.MySql, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.MySql.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.OAuthClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.OAuthClient.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.AM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Objects.AM.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.FS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Objects.FS.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.PJ, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Objects.PJ.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.PM, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Objects.PM.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.PM.ChangeRequest, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Objects.PM.ChangeRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Objects.PR, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Objects.PR.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Olap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Olap.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Owin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Owin.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Owin.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Payroll, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Payroll.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.PushNotifications, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.PushNotifications.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Reports, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Reports.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Reports.ARm, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Reports.ARm.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Reports.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Reports.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.ResourceGovernor, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.ResourceGovernor.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Salesforce, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Salesforce.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Scenarios, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Scenarios.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.ShipEngineCarrier, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.ShipEngineCarrier.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.SiteMap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.SiteMap.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.SmsProvider.AWS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.SmsProvider.AWS.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.SmsProvider.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.SmsProvider.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.SmsProvider.Twilio, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.SmsProvider.Twilio.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.SmsProvider.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.SmsProvider.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.StampsCarrier, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.StampsCarrier.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.TaxProvider, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.TaxProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.TaxProvider.AvalaraRest, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.TaxProvider.AvalaraRest.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.TaxProvider.AvalaraSoap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.TaxProvider.AvalaraSoap.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.TaxProvider.VertexSoap, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.TaxProvider.VertexSoap.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Telemetry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Telemetry.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Telemetry.Adapter, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Telemetry.Adapter.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Telemetry.SerilogSink, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Telemetry.SerilogSink.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.TokenLogin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.TokenLogin.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.UpsCarrier, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.UpsCarrier.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.VertexService, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.VertexService.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.Customization, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.Customization.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.Customization.MSILEdit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.Customization.MSILEdit.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.Objects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.Site, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.Site.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.Site.Pure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.Site.Pure.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.UI.Design, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.UI.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.UI.Frameset, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.UI.Frameset.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.UI.Frameset.WebApi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.UI.Frameset.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.Web.UI.Workflow, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.Web.UI.Workflow.dll</HintPath>
+    </Reference>
+    <Reference Include="PX.WebConfig, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3b136cac2f602b8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\PX.WebConfig.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Extensions.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Serilog.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Formatting.Compact, Version=1.1.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Serilog.Formatting.Compact.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.PeriodicBatching, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Serilog.Sinks.PeriodicBatching.dll</HintPath>
+    </Reference>
+    <Reference Include="SerilogTimings, Version=2.3.0.0, Culture=neutral, PublicKeyToken=ea6fc7d88906f03a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\SerilogTimings.dll</HintPath>
+    </Reference>
+    <Reference Include="ShipEngine.ApiClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\ShipEngine.ApiClient.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\StackExchange.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis.StrongName, Version=1.2.6.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\StackExchange.Redis.StrongName.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\stdole.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Swashbuckle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.5.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.PerformanceCounter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Diagnostics.PerformanceCounter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=4.0.20622.1351, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.IdentityModel.Tokens.ValidatingIssuerNameRegistry.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Reflection.Emit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Emit.ILGeneration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Reflection.Emit.ILGeneration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Permissions, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Channels, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Threading.Channels.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Http.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Vereyon.Web.HtmlSanitizer, Version=1.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\Vereyon.Web.HtmlSanitizer.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDAVClient, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\WebDAVClient.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acu20R2-200.0.0.1\lib\net4.8\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

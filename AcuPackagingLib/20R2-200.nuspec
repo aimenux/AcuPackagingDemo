@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Acu20R2-200</id>
+    <version>0.0.1</version>
+    <title>Acu20R2-200-Package</title>
+    <authors>AcuDev</authors>
+    <owners>AcuDev</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Contains the core references for Acumatica 20R2-200.</description>
+    <dependencies>
+        <group targetFramework=".NETFramework4.8" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="20R2-200\*.pdb" target="lib\net4.8" /> 
+    <file src="20R2-200\*.dll" target="lib\net4.8"/>
+    <file src="20R2-200\*.xml" target="lib\net4.8"/>
+  </files>
+</package>
