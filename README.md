@@ -1,3 +1,5 @@
+[![CI](https://github.com/aimenux/AcuPackagingDemo/actions/workflows/ci.yml/badge.svg)](https://github.com/aimenux/AcuPackagingDemo/actions/workflows/ci.yml)
+
 # AcuPackagingDemo
 ```
 Packaging acumatica dlls to nuget feed source
