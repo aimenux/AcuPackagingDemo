@@ -17,10 +17,10 @@ jobs:
       - name: Setup NuGet
         uses: nuget/setup-nuget@v1
       - name: Restore Packages
-        run: nuget restore AcuPackagingLibrary.sln
+        run: nuget restore AcuPackagingDemo.sln
       - name: Build DotNET
         run: |
-         MSBuild.exe $Env:GITHUB_WORKSPACE\AcuPackagingLibrary.sln
+         MSBuild.exe $Env:GITHUB_WORKSPACE\AcuPackagingDemo.sln
       - name: Generate 20R1-112 package
         working-directory: AcuPackagingLib
         run: nuget pack 20R1-112.nuspec
