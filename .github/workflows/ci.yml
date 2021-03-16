@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: [windows-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1    
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v1
+      - name: Setup NuGet
+        uses: nuget/setup-nuget@v1
+      - name: Restore Packages
+        run: nuget restore AcuPackagingLibrary.sln
+      - name: Build DotNET
+        run: |
+         MSBuild.exe $Env:GITHUB_WORKSPACE\AcuPackagingLibrary.sln
+      - name: Generate 20R1-112 package
+        working-directory: AcuPackagingLib
+        run: nuget pack 20R1-112.nuspec
+      - name: Generate 20R2-200 package
+        working-directory: AcuPackagingLib
+        run: nuget pack 20R2-200.nuspec
+      - name: Set NugetApiKey
+        run: nuget setapikey ${{secrets.NUGET_API_KEY}}
+      - name: Publish packages
+        working-directory: AcuPackagingLib
+        run: nuget push *.nupkg -Source https://api.nuget.org/v3/index.json -SkipDuplicate
